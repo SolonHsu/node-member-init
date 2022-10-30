@@ -10,14 +10,17 @@ import firebase from '../connections_esm/firebase_connect.js';
 
 
 router.get('/', function (req, res, next) {
-    /*firebaseDb.ref().once('value',function(Snapshot){
-        console.log(Snapshot.val());
-    })*/
-    var auth=req.session.uid;
-    res.render('index', {
-        title: '六角學院留言板',
-        auth:auth
-    });
+    firebaseDb.ref('list').once('value',function(Snapshot){
+        
+        var auth=req.session.uid;
+        res.render('index', {
+            title: '六角學院留言板',
+            auth:auth,
+            errors:req.flash('errors'),
+            list:Snapshot.val()
+        });
+    })
+    
    
 });
 /* GET home page. */

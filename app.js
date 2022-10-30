@@ -18,7 +18,7 @@ import cookieParser from 'cookie-parser';
 var app = express();
 import bodyParser from 'body-parser';
 import flash from 'connect-flash';
-import validator from 'express-validator';
+import {body,validationResult} from 'express-validator';
 
 //app.set('views', path.join(__dirname, 'views'));
 app.set('views','./views');
@@ -32,7 +32,7 @@ app.use(flash());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(validator());
+//app.use(validator());
 app.use(cookieParser());
 app.use(express.static('/public'));
 
