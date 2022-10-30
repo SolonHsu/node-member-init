@@ -23,7 +23,7 @@
     "ejs": "~2.3.3",
     "express": "~4.13.1",
     "express-session": "^1.15.6",
-    "express-validator": "^4.2.1",
+    "express-validator": "^4.3.0",
     "firebase": "^9.12.1",
     "firebase-admin": "^11.2.0",
     "morgan": "~1.6.1",

@@ -50,9 +50,17 @@ import user from './routes/user.js';
 app.use('/', routes);
 app.use('/login', login);
 app.use('/signup', signup);
-app.use('/user', user);
+//app.use('/user', user);
 app.use('/messageBoard', messageBoard);
 
+//check login
+app.use(function(req,res,next){
+  if(req.session.uid){
+      return next();
+  }
+  res.redirect('/');
+})
+app.use('/user',user);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   var err = new Error('Not Found');

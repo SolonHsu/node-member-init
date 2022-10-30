@@ -8,7 +8,7 @@ const auth = getAuth(firebase);
 
 
 router.get('/', function (req, res) {
-    res.render('signup', { title: '註冊'});
+    res.render('signup', { title: '註冊',error:req.flash('error')});
 })
 
 router.post('/', function (req, res) {
@@ -34,11 +34,13 @@ router.post('/', function (req, res) {
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    console.log(error.code);
-    console.log(error.message);
+    //console.log(errorCode);
+    //console.log(errorMessage);
+    req.flash('error',errorMessage);
+    res.redirect('signup');
 
     // ..
-  });
+  })
 
     
 })

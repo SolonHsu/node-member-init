@@ -10,13 +10,13 @@ import firebase from '../connections_esm/firebase_connect.js';
 
 
 router.get('/', function (req, res, next) {
-    console.log(firebase.auth);
-    firebaseDb.ref().once('value',function(Snapshot){
+    /*firebaseDb.ref().once('value',function(Snapshot){
         console.log(Snapshot.val());
-    })
+    })*/
+    var auth=req.session.uid;
     res.render('index', {
         title: '六角學院留言板',
-        test:'測試測試'
+        auth:auth
     });
    
 });
