@@ -8,7 +8,8 @@ var app = express();
 var flash = require('connect-flash');
 var validator = require('express-validator');*/
 // view engine setup
-
+import Eth from 'web3-eth';
+import Web3 from 'web3';
 //ESM
 import express from 'express';
 import path from 'path';
@@ -23,6 +24,7 @@ import {body,validationResult} from 'express-validator';
 //app.set('views', path.join(__dirname, 'views'));
 app.set('views','./views');
 app.set('view engine', 'ejs');
+
 // session
 //var session = require("express-session")
 import session from 'express-session';

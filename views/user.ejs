@@ -10,6 +10,27 @@
     <h1>
         你的姓名:<%= nickname %>
     </h1>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.0/web3.min.js"></script>
+        
+    
+    <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+    <script  type="module">
+//         const provider = await detectEthereumProvider();
+//         if (provider) {
+//         // From now on, this should always be true:
+//         // provider === window.ethereum
+//         console.log("MetaMask存在"); // initialize your app
+//      } else {
+//   console.log('Please install MetaMask!');
+//  }
+    </script>
+    
+    <h2>你的地址：</h2>
+    <div id="address"></div>
+    <h2>你的餘額：</h2>
+    <div id="balance"></div>
+    <script type="module" src="/web3/web3test.js"></script>
 </body>
 </html>
