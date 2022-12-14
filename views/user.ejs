@@ -7,30 +7,51 @@
 </head>
 
 <body>
+    <a href="/">回首頁</a>
+
     <h1>
         你的姓名:<%= nickname %>
     </h1>
+    <h1>
+        Email:<%= email%>
+    </h1>
+    <div>
+        <!-- Contract: -->
+        <h3 id="contractaddress" style="display:none" ><%= contract%></h3>
+        <!-- NFT: -->
+        <h3 id="abi" style="display:none"><%= abi%></h3>
+        <h3 id="No" style="display:none"><%= No%></h3>
+        <img id=first src="" alt="" width="200" style="display:none">
+       
+    </div>
+    
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.0/web3.min.js"></script>
-        
-    
     <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
-    <script  type="module">
-//         const provider = await detectEthereumProvider();
-//         if (provider) {
-//         // From now on, this should always be true:
-//         // provider === window.ethereum
-//         console.log("MetaMask存在"); // initialize your app
-//      } else {
-//   console.log('Please install MetaMask!');
-//  }
-    </script>
+    <script  type="module"></script>
     
+    
+
     <h2>你的地址：</h2>
     <div id="address"></div>
     <h2>你的餘額：</h2>
     <div id="balance"></div>
-    <script type="module" src="/web3/web3test.js"></script>
+    <hr>
+    <p id="b"></p>
+
+    <form action="/nft" method="post" style="display:none">
+        <div>
+            <input type="text" size="45" name="contractaddress" placeholder="合約地址">
+            <input type="text" size="30" name="abijson" placeholder="abi"> 
+            <input type="text" size="5" name="Number" placeholder="No"> 
+            <input type="submit" value="送出">
+            <%= errors %>
+        </div>
+    </form>
+
+    <script>
+    </script>
+    <script type="module" src="/web3/userweb3.js"></script>
 </body>
 </html>

@@ -49,11 +49,16 @@ import login from './routes/login.js';
 import messageBoard from './routes/messageBoard.js';
 import signup from './routes/signup.js';
 import user from './routes/user.js';
+import nft from './routes/nft.js';
+import imageurl from './routes/imageurl.js';
+
 app.use('/', routes);
 app.use('/login', login);
 app.use('/signup', signup);
 //app.use('/user', user);
 app.use('/messageBoard', messageBoard);
+app.use('/nft',nft);
+app.use('/imageurl',imageurl);
 
 //check login
 app.use(function(req,res,next){

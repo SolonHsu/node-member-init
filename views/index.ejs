@@ -6,30 +6,46 @@
   </title>
 </head>
 <body>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.0/web3.min.js"></script>
+    <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+    <script  type="module"></script>
 	<h1>留言板</h1>
 	<% if(!auth){ %>
 	<p>您尚未登入，只能瀏覽，若要留言請先登入</p>
 	<% }	%>
-
+	<% if(!auth){%>
+		<a href="/login">登入</a>
+		<a href="/signup">註冊</a>	
+	<%}%>
+	<% if(auth){%>
+		<a href="/user">個人頁面</a>
+		<%}%>
+	<br>
 	<% if(auth){%>
 	<form action="/messageBoard" method="post">
-		<input type="text" name="content" placeholder="填寫留言訊息">
-		<input type="submit" valut="送出">
+		<input type="text" name="content" size="30" placeholder="填寫留言訊息">
+		<input type="text" name="contract" size="40" placeholder="填入合約地址">
+		<input type="text" name="No" size="5" placeholder="＃">
+		<input type="submit" value="送出">
 		<%= errors %>
 	</form>
 	<%}%>
-	<a href="/login">登入</a>
-	<a href="/signup">註冊</a>
-		<% if(auth){%>
-		<a href="/user">個人頁面</a>
-		<%}%>
-	<ul>
+
+		
+	<a href="" id="NFTs" style="display:none"><%= list%></a>
+	<ul id="message">
 		<% for(item in list){%>
 			<li>
-				<%= list[item].nickname %>:<%= list[item].content %>
+				<%= list[item].nickname %>:  <%= list[item].content %>
+				<% if(list[item].contract!=""){%>
+					<img id="<%= item %>"src="" width="200" alt="<%= list[item].contract %>/<%= list[item].No,%>" # <%= list[item].No%>
+				<%}%>
+				
 			</li>
 			<%}%>
-	 </ul>
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.4/web3.min.js"></script>
+	</ul>
+	
+	 <script type="module" src="/web3/indexweb3.js"></script>
 </body>
 </html>

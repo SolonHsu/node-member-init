@@ -1,4 +1,3 @@
-//var express = require('express');
 import express from 'express';
 var router = express.Router();
 import firebaseDb from '../connections/firebase_admin_connect.js';
@@ -14,19 +13,20 @@ router.post('/',check("content").isEmpty(),function (req, res) {
         console.log("失敗");
         res.redirect('/');
     }else{
-
-   firebaseDb.ref('user/'+req.session.uid).once('value',(snapshot)=>{
-       var nickname = snapshot.val().nickname;
-       var ref = firebaseDb.ref('list').push();
-       var listContent = {
-           nickname:nickname,
-           content:req.body.content
-       }
+        firebaseDb.ref('user/'+req.session.uid).once('value',(snapshot)=>{
+            var nickname = snapshot.val().nickname;
+            var ref = firebaseDb.ref('list').push();
+            var listContent = {
+            nickname:nickname,
+            content:req.body.content,
+            contract:req.body.contract,
+            No:req.body.No
+        }
        ref.set(listContent)
        .then(()=>{
            res.redirect('/');
        })
-   })
+      })
     }
 })
 export default router;
