@@ -1,6 +1,6 @@
 
-  var web3=new Web3(window.ethereum);
-//
+  //var web3=new Web3(window.ethereum);
+var web3=new Web3("https://mainnet.infura.io/v3/264f6a80b8ee4c2b990219749f1ee85d");
 
 		const temp = document.getElementById('message');
 		const imglis=temp.getElementsByTagName('img');
@@ -20,6 +20,7 @@
         				const abitext=data.result;
 						const abi=JSON.parse(abitext);
 						const contract = new web3.eth.Contract(abi,contractaddress);
+						//console.log(contract);
 						var tokenMetadataURI = await contract.methods.tokenURI(No).call();
 						console.log("NO."+i+":"+tokenMetadataURI);
 						tokenMetadataURI=checkipfs(tokenMetadataURI);
