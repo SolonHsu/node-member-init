@@ -20,6 +20,7 @@ var app = express();
 import bodyParser from 'body-parser';
 import flash from 'connect-flash';
 import {body,validationResult} from 'express-validator';
+const __dirname = path.resolve();
 
 //app.set('views', path.join(__dirname, 'views'));
 app.set('views','./views');
@@ -28,7 +29,7 @@ app.set('view engine', 'ejs');
 // session
 //var session = require("express-session")
 import session from 'express-session';
-app.use(express.static("public"));
+app.use(express.static(__dirname+'/public'));
 app.use(session({ secret: 'mysupersecret', resave: true, saveUninitialized: true }));
 app.use(flash());
 app.use(logger('dev'));
@@ -36,7 +37,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(validator());
 app.use(cookieParser());
-app.use(express.static('/public'));
+//app.use(express.static('/public'));
 
 // routes
 /*var routes = require('./routes/index');
