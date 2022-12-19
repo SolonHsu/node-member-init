@@ -47,6 +47,7 @@ var signup = require('./routes/signup');
 var user = require('./routes/user');*/
 import routes from './routes/index.js';
 import login from './routes/login.js';
+import logout from './routes/logout.js';
 import messageBoard from './routes/messageBoard.js';
 import signup from './routes/signup.js';
 import user from './routes/user.js';
@@ -56,6 +57,7 @@ import manual from './routes/manual.js';
 
 app.use('/', routes);
 app.use('/login', login);
+app.use('/logout',logout);
 app.use('/signup', signup);
 //app.use('/user', user);
 app.use('/messageBoard', messageBoard);
