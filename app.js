@@ -52,6 +52,7 @@ import signup from './routes/signup.js';
 import user from './routes/user.js';
 import nft from './routes/nft.js';
 import imageurl from './routes/imageurl.js';
+import manual from './routes/manual.js';
 
 app.use('/', routes);
 app.use('/login', login);
@@ -60,6 +61,7 @@ app.use('/signup', signup);
 app.use('/messageBoard', messageBoard);
 app.use('/nft',nft);
 app.use('/imageurl',imageurl);
+app.use('/manual',manual);
 
 //check login
 app.use(function(req,res,next){

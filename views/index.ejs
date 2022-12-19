@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.0/web3.min.js"></script>
     <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
     <script  type="module"></script>
-	<h1>留言板</h1>
+	<h1>NFT留言板</h1>
 	<% if(!auth){ %>
 	<p>您尚未登入，只能瀏覽，若要留言請先登入</p>
 	<% }	%>
@@ -24,6 +24,7 @@
 	<% if(auth){%>
 		<a href="/user">個人頁面</a>
 		<%}%>
+	 <a href="/manual">說明</a>
 	<br>
 	<% if(auth){%>
 	<form action="/messageBoard" method="post">
