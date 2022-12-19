@@ -45,7 +45,7 @@ router.post('/', function (req, res) {
     
 })
 router.get('/success',function(req,res){
-    res.render('success',{
+    res.render('Success',{
         title:'註冊成功'
     });
 })
