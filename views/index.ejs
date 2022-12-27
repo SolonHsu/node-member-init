@@ -44,13 +44,12 @@
 			<li>
 				<%= list[item].nickname %>:  <%= list[item].content %>
 				<% if(list[item].contract!=""){%>
-					<img id="<%= item %>"src="" width="200" alt="<%= list[item].contract %>/<%= list[item].No,%>" # <%= list[item].No%>
+					<img id="<%= item %>"src="" width="200" onerror='this.style.display="none"' alt="<%= list[item].contract %>/<%= list[item].No,%>" # <%= list[item].No%> 
 				<%}%>
 				
 			</li>
 			<%}%>
 	</ul>
-	
 	 <script type="module" src="/web3/indexweb3.js"></script>
 </body>
 </html>

@@ -37,6 +37,7 @@ var web3=new Web3("https://mainnet.infura.io/v3/264f6a80b8ee4c2b990219749f1ee85d
 							console.log(data.success);
 							var image=checkipfs(data.image);
 							document.getElementById(Id).src=image;
+							document.getElementById(Id).style.display="inline";
 							console.log(image);
 							})
 						.catch(error=>{console.log(error);})
@@ -60,5 +61,7 @@ var web3=new Web3("https://mainnet.infura.io/v3/264f6a80b8ee4c2b990219749f1ee85d
     				}
 					return ipfs;
 		}
+
+
 		
 		 	
