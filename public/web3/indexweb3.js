@@ -20,7 +20,7 @@ var web3=new Web3("https://mainnet.infura.io/v3/264f6a80b8ee4c2b990219749f1ee85d
         				const abitext=data.result;
 						const abi=JSON.parse(abitext);
 						const contract = new web3.eth.Contract(abi,contractaddress);
-						//console.log(contract);
+						
 						var tokenMetadataURI = await contract.methods.tokenURI(No).call();
 						console.log("NO."+i+":"+tokenMetadataURI);
 						tokenMetadataURI=checkipfs(tokenMetadataURI);
@@ -43,9 +43,6 @@ var web3=new Web3("https://mainnet.infura.io/v3/264f6a80b8ee4c2b990219749f1ee85d
 						.catch(error=>{console.log(error);})
 
 				
-    			// const tokenMetada=await fetch(tokenMetadataURI)
-    			// .then(response=>response.json());
-				// document.getElementById(Id).src=tokenMetada["image"];
                 
       				}          
                  		});

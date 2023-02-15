@@ -70,6 +70,7 @@ ethereum
           console.log("Error" );
       }            
   });
+    printPostsToConsole();
 
     const abitext = document.getElementById("abi").textContent;
     const abi = JSON.parse(abitext);
@@ -89,7 +90,7 @@ ethereum
     .then(response=>response.json());
     document.getElementById("first").src=tokenMetada["image"];
 
-    printPostsToConsole();
+    
 
 
 
